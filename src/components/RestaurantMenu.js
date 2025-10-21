@@ -4,9 +4,8 @@ import mockMenuData from "../utils/mockMenuData";
 import { useParams } from "react-router";
 import { MenuApiurl } from "../utils/constants";
 
-const Restaurant = () => {
+const RestaurantMenu = () => {
   const [resMenu, setResMenu] = useState(null);
-  const [error, setError] = useState(null);
   const { resId } = useParams();
 
   useEffect(() => {
@@ -14,7 +13,7 @@ const Restaurant = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(MenuApiurl + 404938);
+    const data = await fetch(MenuApiurl + resId);
     console.log(data);
     const json = JSON.stringify(data);
     console.log(json);
@@ -54,4 +53,4 @@ const Restaurant = () => {
   );
 };
 
-export default Restaurant;
+export default RestaurantMenu;
