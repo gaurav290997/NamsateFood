@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
@@ -57,7 +58,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredRestrurants = listOfResturants.filter(
-              (res) => res.info.avgRating > 4
+              (res) => res.info.avgRating > 4.5
             );
 
             setListOfResturants(filteredRestrurants);
@@ -68,7 +69,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestrurantsList.map((resturant) => (
-          <RestaurantCard key={resturant.info.id} resData={resturant} />
+          <Link
+            key={resturant.info.id}
+            to={"/restaurants/" + resturant.info.id}
+          >
+            <RestaurantCard resData={resturant} />
+          </Link>
         ))}
       </div>
     </div>
