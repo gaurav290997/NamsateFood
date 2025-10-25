@@ -4,7 +4,7 @@ const User = (props) => {
   const [count, setCount] = useState(0);
   const [count1] = useState(1);
   return (
-    <div className="user-card">
+    <div className="user-card p-4 m-4 bg-gray-50 rounded-lg">
       <h1>Count:{count}</h1>
       <h1>Count1:{count1}</h1>
       <h2>Name:{props.name}</h2>
