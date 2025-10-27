@@ -27,4 +27,3 @@ const Cart = () => {
   );
 };
 export default Cart;
-W;
